@@ -4,12 +4,13 @@ int sobreposicao(float Rx, float Ry, float Ralt, float Rlarg, float x, float y, 
 
 int main()
 {
-    float Rx, Ry, Ralt, Rlarg; //R para o quadrado de Referencia
-    float x, y, alt, larg;
+    float Rx, Ry, Ralt, Rlarg; //variaveis do quadrado de Referencia (as variaveis sao parecidas, R para o quadrado de Referencia)
+    float x, y, alt, larg; //variaveis para os outros quadrados que serao analisados sobre o quadrado de referencia
     int num_retangulos, i, k;
     int num_sobreposicao, total_sobreposicao = 0;
-    float matriz_sobreposicao[100][4];
+    float matriz_sobreposicao[100][4]; //matriz onde sera armazenado as informacoes dos quadrados que estao sobrepostos 
 
+    //armazena informacoes do quadrado de referencia
     printf("QUADRADO DE REFERENCIA:\n");
 
     printf("INSIRA A COORDENADA X: ");
@@ -24,6 +25,7 @@ int main()
     printf("\n\nCOM QUANTOS RETANGULOS VOCE DESEJA TESTAR A SOBREPOSICAO: ");
     scanf("%d", &num_retangulos);
 
+    //armazena informacoes dos quadrados de teste de sobreposicao
     for (i = 0; i < num_retangulos; i++) {
         printf("\nINSIRA A COORDENADA X DO RETANGULO TESTE %d: ", i + 1);
         scanf("%f", &x);
@@ -34,8 +36,10 @@ int main()
         printf("INSIRA A LARGURA DO RETANGULO TESTE %d: ", i + 1);
         scanf("%f", &larg);
 
+        // chama a funcao, se retornar 1 ha sobreposicao, caso retornar 0 nao ha sobreposicao
         num_sobreposicao = sobreposicao(Rx, Ry, Ralt, Rlarg, x, y, alt, larg);
 
+        // caso haja sobreposicao do quadrado de teste, armazena matriz as informacoes deste quadrado especifico
         if (num_sobreposicao == 1) {
             matriz_sobreposicao[total_sobreposicao][0] = x;         
             matriz_sobreposicao[total_sobreposicao][1] = y;         
@@ -44,6 +48,7 @@ int main()
             total_sobreposicao++;                                   
         }
         
+    // imprime na tela os dados do processo realizado
     }
     if (total_sobreposicao > 0) {
         printf("\nSOBREPOSICOES:\n");
@@ -58,12 +63,13 @@ int main()
     return 0;
 }
 
+// funcao que testa se os quadrados de teste estao sobrepostos ao quadrado de referencia
 int sobreposicao(float Rx, float Ry, float Ralt, float Rlarg, float x, float y, float alt, float larg) {
 
     if (x + larg > Rx && y + alt > Ry) {
         if (x < Rx + Rlarg && y < Ry + Ralt) {
-            return 1;
+            return 1; //houve sobreposicao
         }
     }
-    return 0;
+    return 0; //nao houve sobreposicao
 }
