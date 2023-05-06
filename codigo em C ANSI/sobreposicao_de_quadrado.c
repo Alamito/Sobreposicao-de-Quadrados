@@ -1,3 +1,5 @@
+// comentario para teste de PR
+
 #include <stdio.h>
 
 int sobreposicao(float Rx, float Ry, float Ralt, float Rlarg, float x, float y, float alt, float larg);
