@@ -15,6 +15,7 @@ int main()
     //armazena informacoes do quadrado de referencia
     printf("QUADRADO DE REFERENCIA:\n");
     printf("MAIS alguma coisa aqui");
+    printf("MAIS código");
 
     printf("INSIRA A COORDENADA X: ");
     scanf("%f", &Rx);
