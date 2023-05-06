@@ -11,7 +11,7 @@ int main()
     float matriz_sobreposicao[100][4]; //matriz onde sera armazenado as informacoes dos quadrados que estao sobrepostos 
 
     //armazena informacoes do quadrado de referencia
-    printf("QUADRADO DE REFERENCIA:\n");
+    printf("\nQUADRADO DE REFERENCIA:\n");
 
     printf("INSIRA A COORDENADA X: ");
     scanf("%f", &Rx);
